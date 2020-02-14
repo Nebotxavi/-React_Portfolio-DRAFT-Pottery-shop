@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import "./App.css";
 
 import { Cart } from "./pages/Cart";
@@ -13,9 +13,10 @@ export function App() {
     <div className="App">
       <NavBar />
       <Switch>
-        <Route path="/cart/:id" component={Item} />
+        <Route path="/products/:id" component={Item} />
         <Route path="/cart" component={Cart} />
-        <Route exact path="/" component={Home} />
+        <Route exact path="/products" component={Home} />
+        <Redirect from="/" to="/products" />
         <Route component={NotFound} />
       </Switch>
     </div>

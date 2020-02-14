@@ -4,8 +4,8 @@ import img3 from "../img/img3.jpg";
 
 export const data = [
   {
-    type: "Cup",
     ref: 1,
+    type: "Cup",
     name: "Black cup",
     price: 10,
     description:
@@ -13,8 +13,8 @@ export const data = [
     image: img1
   },
   {
-    type: "Cup",
     ref: 2,
+    type: "Cup",
     name: "Black cup",
     price: 10,
     description:
@@ -22,8 +22,8 @@ export const data = [
     image: img2
   },
   {
-    type: "Cup",
     ref: 3,
+    type: "Cup",
     name: "Black cup",
     price: 10,
     description:
@@ -31,8 +31,8 @@ export const data = [
     image: img3
   },
   {
-    type: "Cup",
     ref: 4,
+    type: "Cup",
     name: "Black cup",
     price: 10,
     description:
@@ -40,8 +40,8 @@ export const data = [
     image: img1
   },
   {
-    type: "Cup",
     ref: 5,
+    type: "Cup",
     name: "Black cup",
     price: 10,
     description:
@@ -49,8 +49,8 @@ export const data = [
     image: img2
   },
   {
-    type: "Cup",
     ref: 6,
+    type: "Cup",
     name: "Black cup",
     price: 10,
     description:
@@ -58,8 +58,8 @@ export const data = [
     image: img3
   },
   {
-    type: "Cup",
     ref: 7,
+    type: "Cup",
     name: "Black cup",
     price: 10,
     description:
@@ -67,8 +67,8 @@ export const data = [
     image: img1
   },
   {
-    type: "Cup",
     ref: 8,
+    type: "Cup",
     name: "Black cup",
     price: 10,
     description:
@@ -76,8 +76,8 @@ export const data = [
     image: img2
   },
   {
-    type: "Cup",
     ref: 9,
+    type: "Cup",
     name: "Black cup",
     price: 10,
     description:
@@ -85,8 +85,8 @@ export const data = [
     image: img3
   },
   {
-    type: "Cup",
     ref: 10,
+    type: "Cup",
     name: "Black cup",
     price: 10,
     description:
@@ -94,8 +94,8 @@ export const data = [
     image: img1
   },
   {
-    type: "Cup",
     ref: 11,
+    type: "Cup",
     name: "Black cup",
     price: 10,
     description:

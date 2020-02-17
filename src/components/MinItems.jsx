@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { CollectionContext } from "../contextProvider";
 
 export const MinItems = () => {
-  const { collection, handleAddItem } = useContext(CollectionContext);
+  const { collection, handleCartItem } = useContext(CollectionContext);
 
   return (
     <div>
@@ -17,7 +17,7 @@ export const MinItems = () => {
               <p>{item.name}</p>
               <p>Price: {item.price}€</p>
             </Link>
-            <button onClick={() => handleAddItem(item)}>Buy</button>
+            <button onClick={() => handleCartItem(item, "add")}>Buy</button>
           </div>
         );
       })}

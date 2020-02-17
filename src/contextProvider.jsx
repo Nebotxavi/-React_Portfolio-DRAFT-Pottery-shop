@@ -11,12 +11,16 @@ const CollectionProvider = ({ children }) => {
     setCollection(data); // Redundant useEffect that will make sense once we make calls to the API.
   }, []);
 
-  const handleAddItem = item => {
+  const handleCartItem = (item, operation) => {
     if (cart.includes(item)) {
       setCart(prevItems => {
+        // Add or subtract item amount
+        item.amount = operation === "add" ? item.amount + 1 : item.amount - 1;
         const index = prevItems.indexOf(item);
-        prevItems[index].amount++;
-        return prevItems;
+        if (item.amount > 0) prevItems.splice(index, 1, item);
+        // Remove the item if the item.amount is 0
+        else prevItems.splice(index, 1);
+        return [...prevItems];
       });
     } else {
       item.amount = 1;
@@ -24,10 +28,16 @@ const CollectionProvider = ({ children }) => {
     }
   };
 
-  console.log("CART", cart);
+  const removeCartItem = item => {
+    setCart(prevItems => {
+      return prevItems.filter(prevItem => prevItem.ref !== item.ref);
+    });
+  };
 
   return (
-    <CollectionContext.Provider value={{ collection, cart, handleAddItem }}>
+    <CollectionContext.Provider
+      value={{ collection, cart, handleCartItem, removeCartItem }}
+    >
       {children}
     </CollectionContext.Provider>
   );

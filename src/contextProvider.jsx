@@ -34,9 +34,13 @@ const CollectionProvider = ({ children }) => {
     });
   };
 
+  const clearCart = () => {
+    setCart([]);
+  };
+
   return (
     <CollectionContext.Provider
-      value={{ collection, cart, handleCartItem, removeCartItem }}
+      value={{ collection, cart, handleCartItem, removeCartItem, clearCart }}
     >
       {children}
     </CollectionContext.Provider>

@@ -4,9 +4,17 @@ import { CollectionContext } from "../contextProvider";
 import { Title } from "../components/Title";
 
 export const Cart = () => {
-  const { cart, handleCartItem, removeCartItem } = useContext(
+  const { cart, handleCartItem, removeCartItem, clearCart } = useContext(
     CollectionContext
   );
+
+  const subtotal = cart.length
+    ? cart.reduce((accumulator, currentItem) => {
+        return accumulator + currentItem.price * currentItem.amount;
+      }, 0)
+    : 0;
+  const tax = 21; // consider if this should be outside/API
+  const total = (subtotal * (tax / 100 + 1)).toFixed(2);
 
   return (
     <div>
@@ -16,7 +24,7 @@ export const Cart = () => {
           <div key={item.ref}>
             <p>Image here</p>
             <p>Ref: {item.ref}</p>
-            <p>Price: {item.price}</p>
+            <p>Price: {item.price}€</p>
             <button onClick={() => handleCartItem(item, "subs")}>-</button>
             <p>{item.amount}</p>
             <button onClick={() => handleCartItem(item, "add")}>+</button>
@@ -26,6 +34,12 @@ export const Cart = () => {
           </div>
         );
       })}
+      <div>
+        <button onClick={() => clearCart()}>Clear cart</button>
+        <p>Subtotal: {cart.length && subtotal}€</p>
+        <p>Tax: {tax}%</p>
+        <p>Total: {parseFloat(total)}€</p>
+      </div>
     </div>
   );
 };

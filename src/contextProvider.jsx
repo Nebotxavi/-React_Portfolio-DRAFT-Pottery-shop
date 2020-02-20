@@ -40,7 +40,13 @@ const CollectionProvider = ({ children }) => {
 
   return (
     <CollectionContext.Provider
-      value={{ collection, cart, handleCartItem, removeCartItem, clearCart }}
+      value={{
+        collection,
+        cart,
+        handleCartItem,
+        removeCartItem,
+        clearCart
+      }}
     >
       {children}
     </CollectionContext.Provider>

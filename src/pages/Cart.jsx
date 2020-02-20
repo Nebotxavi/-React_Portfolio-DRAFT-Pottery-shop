@@ -14,7 +14,7 @@ export const Cart = () => {
       }, 0)
     : 0;
   const tax = 21; // consider if this should be outside/API
-  const total = (subtotal * (tax / 100 + 1)).toFixed(2);
+  const total = parseFloat((subtotal * (tax / 100 + 1)).toFixed(2));
 
   return (
     <div>
@@ -38,7 +38,7 @@ export const Cart = () => {
         <button onClick={() => clearCart()}>Clear cart</button>
         <p>Subtotal: {cart.length && subtotal}€</p>
         <p>Tax: {tax}%</p>
-        <p>Total: {parseFloat(total)}€</p>
+        <p>Total: {total}€</p>
       </div>
     </div>
   );

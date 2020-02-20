@@ -28,6 +28,10 @@ const CollectionProvider = ({ children }) => {
     }
   };
 
+  const getCurrentItem = ref => {
+    return collection.find(item => item.ref === parseInt(ref));
+  };
+
   const removeCartItem = item => {
     setCart(prevItems => {
       return prevItems.filter(prevItem => prevItem.ref !== item.ref);
@@ -45,7 +49,8 @@ const CollectionProvider = ({ children }) => {
         cart,
         handleCartItem,
         removeCartItem,
-        clearCart
+        clearCart,
+        getCurrentItem
       }}
     >
       {children}

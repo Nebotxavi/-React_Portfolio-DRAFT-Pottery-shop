@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-function useManageClickOutside(node, { onClick }) {
+function useManageClickOutside(node, onClick) {
   useEffect(() => {
     document.addEventListener("click", e => handleClickOutside(e), false);
     return () => {
@@ -15,9 +15,9 @@ function useManageClickOutside(node, { onClick }) {
   };
 }
 
-export function ManageClickOutside(props) {
+export function ManageClickOutside({ onClick, children }) {
   const node = useRef();
-  useManageClickOutside(node, props);
+  useManageClickOutside(node, onClick);
 
-  return <div ref={node}>{props.children}</div>;
+  return <div ref={node}>{children}</div>;
 }

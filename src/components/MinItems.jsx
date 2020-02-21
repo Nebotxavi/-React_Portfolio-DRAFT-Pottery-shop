@@ -10,6 +10,16 @@ export const MinItems = () => {
   const [item, setItem] = useState();
   const [isItemActive, setIsItemActive] = useState(false);
 
+  const handleClick = item => {
+    handleCartItem(item, "add");
+    setIsItemActive(true);
+    setItem(item);
+  };
+
+  const handleContinueShopping = item => {
+    setIsItemActive(false);
+  };
+
   return (
     <div>
       <div>
@@ -18,15 +28,15 @@ export const MinItems = () => {
             <div key={item.ref}>
               <Link to={`products/${item.ref}`}>
                 <p>Ref: {item.ref}</p>
-                <div>image here</div>
+                <div>
+                  <img src={item.image} alt="" />
+                </div>
                 <p>{item.name}</p>
                 <p>Price: {item.price}€</p>
               </Link>
               <button
                 onClick={() => {
-                  handleCartItem(item, "add");
-                  setIsItemActive(true);
-                  setItem(item);
+                  handleClick(item);
                 }}
               >
                 Buy
@@ -36,7 +46,11 @@ export const MinItems = () => {
         })}
       </div>
       {isItemActive && (
-        <ItemBought item={item} setIsItemActive={setIsItemActive} />
+        <ItemBought
+          item={item}
+          setIsItemActive={setIsItemActive}
+          handleClick={handleContinueShopping}
+        />
       )}
     </div>
   );

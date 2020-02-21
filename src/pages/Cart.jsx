@@ -22,7 +22,9 @@ export const Cart = () => {
       {cart.map(item => {
         return (
           <div key={item.ref}>
-            <p>Image here</p>
+            <p>
+              <img src={item.image} alt="" />
+            </p>
             <p>Ref: {item.ref}</p>
             <p>Price: {item.price}€</p>
             <button onClick={() => handleCartItem(item, "subs")}>-</button>

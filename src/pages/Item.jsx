@@ -39,7 +39,11 @@ export const Item = ({ match, history }) => {
           </button>
         </div>
         {isItemActive && (
-          <ItemBought item={item} handleClick={handleContinueShopping} />
+          <ItemBought
+            item={item}
+            setIsItemActive={setIsItemActive}
+            handleClick={handleContinueShopping}
+          />
         )}
       </div>
     );

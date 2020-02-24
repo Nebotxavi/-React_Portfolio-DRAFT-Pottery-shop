@@ -1,15 +1,18 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 
 import { ItemBought } from "../components/ItemBought";
 import { CollectionContext } from "../contextProvider";
 import loading from "../img/loader/loading.gif";
 
-export const Item = ({ match, history }) => {
+export const Item = () => {
   const { getCurrentItem, handleCartItem } = useContext(CollectionContext);
 
+  const { id } = useParams();
+  const { history } = useHistory();
+
   const [isItemActive, setIsItemActive] = useState(false);
-  const item = getCurrentItem(match.params.id);
+  const item = getCurrentItem(id);
 
   const handleContinueShopping = () => {
     history.push("/products");

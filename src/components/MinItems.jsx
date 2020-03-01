@@ -25,7 +25,7 @@ export const MinItems = () => {
       <div>
         {collection.map(item => {
           return (
-            <div key={item.ref}>
+            <div className="minItem" key={item.ref}>
               <Link to={`products/${item.ref}`}>
                 <p>Ref: {item.ref}</p>
                 <div>
